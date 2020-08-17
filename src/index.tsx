@@ -2,11 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Square extends React.Component {
+type SquareProps = {
+	value: number;
+}
+type SquareState = {
+}
+
+class Square extends React.Component<SquareProps, SquareState> {
+  state: SquareState = {};
   render() {
     return (
       <button className="square">
-        {/* TODO */}
+        {this.props.value}
       </button>
     );
   }
@@ -14,7 +21,7 @@ class Square extends React.Component {
 
 class Board extends React.Component {
   renderSquare(i: number) {
-    return <Square />;
+    return <Square value={i}/>;
   }
 
   render() {
